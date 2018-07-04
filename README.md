@@ -70,7 +70,7 @@ More [constructor options](#constructor-options) are available.
 
 ### In browser with `<script>`
 
-Use the file [https://unpgk.com/a11y-navigation](https://unpgk.com/a11y-navigation) directly from the UNPKG CDN or download and link it locally.
+Use the file [https://unpkg.com/a11y-navigation](https://unpgk.com/a11y-navigation) directly from the UNPKG CDN or download and link it locally.
 
 **index.html**
 
@@ -79,7 +79,7 @@ Use the file [https://unpgk.com/a11y-navigation](https://unpgk.com/a11y-navigati
 <html>
   <head>
     …
-    <script defer src="https://unpgk.com/a11y-navigation"></script>
+    <script defer src="https://unpkg.com/a11y-navigation"></script>
     <script defer src="scripts.js"></script>
   </head>
   <body>
