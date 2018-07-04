@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A11Y Navigation</title>
+
+    <style>
+      [hidden] {
+        display: none;
+      }
+
+      .nav-button__close {
+        display: none;
+      }
+
+      .nav-item.is-open .nav-button__close {
+        display: inline;
+      }
+
+      .nav-item.is-open .nav-button__open {
+        display: none;
+      }
+
+      .nav-child {
+        display: none;
+      }
+
+      .nav-item.is-open .nav-child {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>A11Y Navigation</h1>
+
+    <nav class="nav js-nav">
+      <ul class="nav-list">
+
+        <li class="nav-item js-nav-item">
+          <a class="nav-link js-nav-link" href="#0">Nav Entry #1</a>
+          <button class="nav-button js-nav-button" hidden>
+            <span class="nav-button__open">Open</span>
+            <span class="nav-button__close">Close</span>
+            child
+          </button>
+          <ul class="nav-child js-nav-child">
+            <li class="nav-child-item">
+              <a class="nav-child-link" href="#0">Child Entry #1.1</a>
+            </li>
+            <li class="nav-child-item">
+              <a class="nav-child-link" href="#0">Child Entry #1.2</a>
+            </li>
+            <li class="nav-child-item">
+              <a class="nav-child-link" href="#0">Child Entry #1.3</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item js-nav-item">
+          <a class="nav-link js-nav-link" href="#0">Nav Entry #2</a>
+          <button class="nav-button js-nav-button" hidden>
+            <span class="nav-button__open">Open</span>
+            <span class="nav-button__close">Close</span>
+            child
+          </button>
+          <ul class="nav-child js-nav-child">
+            <li class="nav-child-item">
+              <a class="nav-child-link" href="#0">Child Entry #2.1</a>
+            </li>
+            <li class="nav-child-item">
+              <a class="nav-child-link" href="#0">Child Entry #2.2</a>
+            </li>
+            <li class="nav-child-item">
+              <a class="nav-child-link" href="#0">Child Entry #2.3</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#0">Nav Entry #3 (no child)</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <script src="dist/a11y-navigation.js"></script>
+    <script>
+      new A11yNavigation({
+        el: document.querySelector('.js-nav')
+      })
+    </script>
+
+  </body>
+</html>

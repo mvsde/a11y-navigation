@@ -1,0 +1,39 @@
+{
+  "name": "a11y-navigation",
+  "version": "0.1.0",
+  "description": "Create an accessible navigation bar that works on mobile, desktop, and everything in between",
+  "main": "dist/a11y-navigation.common.js",
+  "module": "dist/a11y-navigation.esm.js",
+  "repository": "git@github.com:mvsde/a11y-navigation.git",
+  "author": "Fynn Becker <info@fynn-becker.de>",
+  "license": "MIT",
+  "files": [
+    "dist/*.js",
+    "src",
+    "npm-shrinkwrap.json",
+    "yarn.lock"
+  ],
+  "scripts": {
+    "lint": "eslint \"src/**\"",
+    "dev": "rollup -c -w -m inline --environment NODE_ENV:development",
+    "build": "rollup -c --environment NODE_ENV:production",
+    "prepack": "npm run lint && npm run build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "babel-eslint": "^8.2.5",
+    "eslint": "^5.0.1",
+    "eslint-config-standard": "^12.0.0-alpha.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^4.0.0-beta.7",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-serve": "^0.4.2",
+    "rollup-plugin-terser": "^1.0.1",
+    "rollup-plugin-uglify": "^4.0.0"
+  }
+}

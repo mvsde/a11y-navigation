@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+._*
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+[Dd]esktop.ini
+
+# Node
+/dist
+/node_modules
+yarn-error.log
