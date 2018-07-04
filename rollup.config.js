@@ -6,22 +6,31 @@ import serve from 'rollup-plugin-serve'
 import { terser } from 'rollup-plugin-terser'
 
 const ext = process.env.MINIFY ? 'min.js' : 'js'
+const banner = `/*!
+ * A11Y Navigation v0.1.0
+ *
+ * Copyright (c) 2018 Fynn Becker
+ * This source code is licensed under the MIT license.
+ */`
 
 const config = {
   input: 'src/index.js',
   output: [
     {
       file: `dist/a11y-navigation.common.${ext}`,
-      format: 'cjs'
+      format: 'cjs',
+      banner
     },
     {
       file: `dist/a11y-navigation.esm.${ext}`,
-      format: 'es'
+      format: 'es',
+      banner
     },
     {
       file: `dist/a11y-navigation.${ext}`,
       format: 'umd',
-      name: 'A11yNavigation'
+      name: 'A11yNavigation',
+      banner
     }
   ],
   plugins: [
@@ -40,7 +49,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 if (process.env.MINIFY) {
-  config.plugins.push(terser())
+  config.plugins.push(terser({
+    output: {
+      comments: /^!/
+    }
+  }))
 }
 
 export default config

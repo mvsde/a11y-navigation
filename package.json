@@ -8,6 +8,11 @@
   "jsdelivr": "dist/a11y-navigation.min.js",
   "repository": "git@github.com:mvsde/a11y-navigation.git",
   "author": "Fynn Becker <info@fynn-becker.de>",
+  "homepage": "https://github.com/mvsde/a11y-navigation",
+  "bugs": {
+    "email": "info@fynn-becker.de",
+    "url": "https://github.com/mvsde/a11y-navigation/issues"
+  },
   "license": "MIT",
   "keywords": [
     "accessibility",

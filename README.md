@@ -2,9 +2,11 @@
 
 Create an accessible navigation bar that works on mobile, desktop, and everything in between. This package doesn't provide any CSS but instead gives you the freedom to style the navigation to your liking.
 
+The JavaScript sets all necessary `aria-*`-attributes and adds a class to the currently opened navigation item. The class can be customized to be anything that fits your CSS architecture.
+
 Take a look at the [minimal required markup](#minimal-required-markup) and build your own custom navigation based on the example.
 
-The JavaScript sets all necessary `aria-*`-attributes and adds a class to the currently opened navigation item. The class can be customized to be anything that fits your CSS architecture.
+The minified browser bundle is `2.98 KB` small and only `1.1 KB` with Gzip enabled.
 
 ## Usage
 
@@ -46,11 +48,15 @@ The JavaScript sets all necessary `aria-*`-attributes and adds a class to the cu
 
 A JavaScript bundler like [webpack](https://webpack.js.org) or [rollup.js](https://rollupjs.org) is required.
 
+**Installation**
+
 ```bash
 yarn add a11y-navigation
 # or
 npm install --save a11y-navigation
 ```
+
+**Importing and instantiation**
 
 ```js
 import A11yNavigation from 'a11y-navigation'
@@ -67,6 +73,7 @@ More [constructor options](#constructor-options) are available.
 Use the file [https://unpgk.com/a11y-navigation](https://unpgk.com/a11y-navigation) directly from the UNPKG CDN or download and link it locally.
 
 **index.html**
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -84,6 +91,7 @@ Use the file [https://unpgk.com/a11y-navigation](https://unpgk.com/a11y-navigati
 ```
 
 **script.js**
+
 ```js
 new A11yNavigation({
   el: document.querySelector('.js-nav')
