@@ -1,13 +1,17 @@
 {
   "name": "a11y-navigation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create an accessible navigation bar that works on mobile, desktop, and everything in between",
   "main": "dist/a11y-navigation.common.js",
   "module": "dist/a11y-navigation.esm.js",
   "unpkg": "dist/a11y-navigation.min.js",
   "jsdelivr": "dist/a11y-navigation.min.js",
   "repository": "git@github.com:mvsde/a11y-navigation.git",
-  "author": "Fynn Becker <info@fynn-becker.de>",
+  "author": {
+    "name": "Fynn Becker",
+    "email": "info@fynn-becker.de",
+    "url": "http://fynn-becker.de"
+  },
   "homepage": "https://github.com/mvsde/a11y-navigation",
   "bugs": {
     "email": "info@fynn-becker.de",
