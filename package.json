@@ -9,6 +9,13 @@
   "repository": "git@github.com:mvsde/a11y-navigation.git",
   "author": "Fynn Becker <info@fynn-becker.de>",
   "license": "MIT",
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "menu",
+    "navbar",
+    "navigation"
+  ],
   "files": [
     "dist/*.js",
     "src",
