@@ -1,4 +1,5 @@
-const detectTouch = window.matchMedia('(any-pointer: coarse)')
+import detectHover from './detect-hover'
+import detectTouch from './detect-touch'
 
 /**
  * Item class
@@ -28,10 +29,10 @@ export default class Item {
       childId: `${this.id}-child`
     }
 
-    // Detect initial open state
     this.isOpen = this.el.classList.contains(this.config.classOpen) || false
+    this.canHover = detectHover()
+    this.canTouch = false
 
-    this.setTouchState()
     this.setButtonVisibility()
     this.setAttributes()
 
@@ -41,47 +42,54 @@ export default class Item {
 
     this.button.addEventListener('click', () => this.toggle())
     this.link.addEventListener('focus', () => this.open())
-    this.link.addEventListener('mouseenter', () => this.open())
-    this.el.addEventListener('mouseleave', () => this.close())
 
-    // Close if user tabs back
+    this.el.addEventListener('mouseenter', () => {
+      // Open if user isn’t touching
+      if (!this.canTouch) {
+        this.open()
+      }
+    })
+
+    this.el.addEventListener('mouseleave', () => {
+      // Close if user isn’t touching
+      if (!this.canTouch) {
+        this.close()
+      }
+    })
+
     this.link.addEventListener('keydown', event => {
+      // Close if user tabs back
       if (event.shiftKey && event.keyCode === 9) {
         this.close()
       }
     })
 
-    // Close if user tabs out
     const childLinks = this.child.querySelectorAll('a')
     childLinks[childLinks.length - 1].addEventListener('keydown', event => {
+      // Close if user tabs out
       if (!event.shiftKey && event.keyCode === 9) {
         this.close()
       }
     })
 
-    // Add listener to touch media query
-    detectTouch.addListener(() => {
-      this.setTouchState()
+    detectHover(canHover => {
+      this.canHover = canHover
       this.setButtonVisibility()
     })
-  }
 
-  /**
-   * Try to detect touch enabled device
-   * Assume touch if media query `any-pointer` is not supported
-   */
-  setTouchState () {
-    this.isTouch = (detectTouch.matches || detectTouch.media === 'not all') || false
+    detectTouch(() => {
+      this.canTouch = true
+    })
   }
 
   /**
    * Set button visibility state
    */
   setButtonVisibility () {
-    if (this.isTouch) {
-      this.button.removeAttribute('hidden')
-    } else {
+    if (this.canHover) {
       this.button.setAttribute('hidden', 'hidden')
+    } else {
+      this.button.removeAttribute('hidden')
     }
   }
 
@@ -109,7 +117,6 @@ export default class Item {
     // Close all other items before opening the current
     this.items.forEach(item => (item !== this) && item.close())
 
-    // Open current item and set attributes
     this.el.classList.add(this.config.classOpen)
     this.setAttributes()
   }
@@ -120,7 +127,6 @@ export default class Item {
   close () {
     this.isOpen = false
 
-    // Close current item and set attributes
     this.el.classList.remove(this.config.classOpen)
     this.setAttributes()
   }

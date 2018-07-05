@@ -28,8 +28,8 @@ export default class A11yNavigation {
       selectorLink: options.selectorLink || '.js-nav-link'
     }
 
-    // Create navigation items
     const items = this.el.querySelectorAll(this.config.selectorItem)
+
     for (let i = 0; i < items.length; i++) {
       this.items.push(new Item({
         el: items[i],
