@@ -13,7 +13,7 @@ The minified browser bundle is `2.98 KB` small and only `1.1 KB` with Gzip enabl
 ### Minimal required markup
 
 ```html
-<nav class="js-nav">
+<nav class="js-nav" id="navigation">
   <ul>
 
     <li class="js-nav-item">
@@ -106,6 +106,7 @@ More [constructor options](#constructor-options) are available.
 const options = {
   // Required
   el: document.querySelector('.js-nav'),
+  id: el.id, // Defaults to nav container id
   // Optional (these are the default values)
   classOpen: 'is-open',
   selectorButton: '.js-nav-button',

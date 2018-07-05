@@ -8,6 +8,7 @@ export default class A11yNavigation {
    * Create new A11yNavigation
    * @param {Object} options Configuration
    * @param {HTMLElement} options.el Container element
+   * @param {string} [options.id] Navigation ID
    * @param {string} [options.classOpen=is-open] Toggle this class
    * @param {string} [options.selectorButton=.js-nav-button] Button selector
    * @param {string} [options.selectorChild=.js-nav-child] Child selector
@@ -16,6 +17,7 @@ export default class A11yNavigation {
    */
   constructor (options) {
     this.el = options.el
+    this.id = options.id || this.el.id
     this.items = []
 
     this.config = {
@@ -31,6 +33,7 @@ export default class A11yNavigation {
     for (let i = 0; i < items.length; i++) {
       this.items.push(new Item({
         el: items[i],
+        id: `${this.id}-item-${i + 1}`,
         items: this.items,
         classOpen: this.config.classOpen,
         selectorButton: this.config.selectorButton,

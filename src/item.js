@@ -8,6 +8,7 @@ export default class Item {
    * Create new Item
    * @param {Object} options Configuration
    * @param {HTMLElement} options.el Item element
+   * @param {string} options.id Item ID
    * @param {Item[]} options.items Items of current A11yNavigation
    * @param {string} options.selectorButton Button selector
    * @param {string} options.selectorChild Child selector
@@ -16,13 +17,15 @@ export default class Item {
    */
   constructor (options) {
     this.el = options.el
+    this.id = options.id
     this.items = options.items
     this.button = options.el.querySelector(options.selectorButton)
     this.child = options.el.querySelector(options.selectorChild)
     this.link = options.el.querySelector(options.selectorLink)
 
     this.config = {
-      classOpen: options.classOpen
+      classOpen: options.classOpen,
+      childId: `${this.id}-child`
     }
 
     // Detect initial open state
@@ -31,6 +34,10 @@ export default class Item {
     this.setTouchState()
     this.setButtonVisibility()
     this.setAttributes()
+
+    this.button.setAttribute('aria-controls', this.config.childId)
+    this.link.setAttribute('aria-controls', this.config.childId)
+    this.child.id = this.config.childId
 
     this.button.addEventListener('click', () => this.toggle())
     this.link.addEventListener('focus', () => this.open())
@@ -85,9 +92,11 @@ export default class Item {
     if (this.isOpen) {
       this.button.setAttribute('aria-expanded', 'true')
       this.child.setAttribute('aria-hidden', 'false')
+      this.link.setAttribute('aria-expanded', 'true')
     } else {
       this.button.setAttribute('aria-expanded', 'false')
       this.child.setAttribute('aria-hidden', 'true')
+      this.link.setAttribute('aria-expanded', 'false')
     }
   }
 
