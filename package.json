@@ -9,12 +9,12 @@
   "repository": "git@github.com:mvsde/a11y-navigation.git",
   "author": {
     "name": "Fynn Becker",
-    "email": "info@fynn-becker.de",
+    "email": "post@fynn.be",
     "url": "http://fynn-becker.de"
   },
   "homepage": "https://github.com/mvsde/a11y-navigation",
   "bugs": {
-    "email": "info@fynn-becker.de",
+    "email": "post@fynn.be",
     "url": "https://github.com/mvsde/a11y-navigation/issues"
   },
   "license": "MIT",
@@ -27,34 +27,34 @@
   ],
   "files": [
     "dist/*.js",
-    "src",
-    "npm-shrinkwrap.json",
-    "yarn.lock"
+    "src"
   ],
   "scripts": {
     "lint": "eslint \"src/**\"",
     "dev": "rollup -c -w -m inline --environment NODE_ENV:development",
     "build": "rollup -c --environment NODE_ENV:production",
     "build:min": "rollup -c --environment NODE_ENV:production,MINIFY",
-    "prepack": "npm run lint && npm run build && npm run build:min"
+    "prepare": "npm run lint && npm run build && npm run build:min",
+    "release": "standard-version"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
-    "babel-eslint": "^8.2.5",
-    "eslint": "^5.0.1",
-    "eslint-config-standard": "^12.0.0-alpha.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "rollup": "^0.62.0",
-    "rollup-plugin-babel": "^4.0.0-beta.7",
-    "rollup-plugin-eslint": "^4.0.0",
-    "rollup-plugin-filesize": "^2.0.0",
-    "rollup-plugin-livereload": "^0.6.0",
-    "rollup-plugin-serve": "^0.4.2",
-    "rollup-plugin-terser": "^1.0.1",
-    "rollup-plugin-uglify": "^4.0.0"
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.3",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "rollup": "^1.7.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-eslint": "^5.0.0",
+    "rollup-plugin-filesize": "^6.0.1",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-uglify": "^6.0.2",
+    "standard-version": "^5.0.2"
   }
 }

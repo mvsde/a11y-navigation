@@ -51,9 +51,7 @@ A JavaScript bundler like [webpack](https://webpack.js.org) or [rollup.js](https
 **Installation**
 
 ```bash
-yarn add a11y-navigation
-# or
-npm install --save a11y-navigation
+npm install a11y-navigation
 ```
 
 **Importing and instantiation**
@@ -121,30 +119,22 @@ const options = {
 ### Prerequisites
 
 * [Node.js](https://nodejs.org)
-* [Yarn (optional)](https://yarnpkg.com)
 
 ### Installation
 
 ```bash
-yarn
-# or
 npm install
 ```
 
 ### Start development server
 
 ```bash
-yarn dev
-# or
 npm run dev
 ```
 
 ### Build production files
 
 ```bash
-yarn build
-yarn build:min
-# or
 npm run build
 npm run build:min
 ```

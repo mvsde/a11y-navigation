@@ -1,6 +1,6 @@
 import { terser } from 'rollup-plugin-terser'
 import babel from 'rollup-plugin-babel'
-import eslint from 'rollup-plugin-eslint'
+import { eslint } from 'rollup-plugin-eslint'
 import filesize from 'rollup-plugin-filesize'
 import livereload from 'rollup-plugin-livereload'
 import packageJSON from './package.json'
@@ -11,7 +11,7 @@ const ext = process.env.MINIFY ? 'min.js' : 'js'
 const banner = `/*!
  * A11Y Navigation v${packageJSON.version}
  *
- * Copyright (c) 2018 ${packageJSON.author.name}
+ * Copyright (c) 2019 ${packageJSON.author.name}
  * This source code is licensed under the MIT license.
  */`
 
